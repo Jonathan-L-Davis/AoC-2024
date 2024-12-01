@@ -1,8 +1,7 @@
 #!/usr/bin/bash
 
 day_01_1=( "src/01/main.cpp" )
-Object_Files=()
-Compiler=""
+Compiler="g++"
 
 # compiler search needs to be abstracted slightly, but oh well, works for the moment. 
 # search for valid compiler. Print nothing if clang is found w/ support for c++17 since that's our ideal. Complain if g++ works, since we really only want to support clang++.
