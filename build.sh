@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 
 day_01=( "src/01/main.cpp" )
-Compiler="g++"
+day_02=( "src/01/main.cpp" )
+Compiler=""
 
 # compiler search needs to be abstracted slightly, but oh well, works for the moment. 
 # search for valid compiler. Print nothing if clang is found w/ support for c++17 since that's our ideal. Complain if g++ works, since we really only want to support clang++.
@@ -67,7 +68,7 @@ compile_files( ){
         mkdir -p "obj/$path" # otherwise clang++/g++ complain about non-existing directory
         $compiler "$file" -c -o "${object_file}" -std=c++20
     done
-    
+    object_files_glob=""
     for object in "${object_files[@]}" ; do
         object_files_glob+="$object"
     done 
@@ -86,4 +87,6 @@ cp input gen -r
 mkdir -p output # where any file output goes to be stored for later (incase of multistage processing.)
 compile_files $Compiler day_01
 link_objects "$Compiler" "$object_files_glob" "gen/day_01"
+compile_files $Compiler day_02
+link_objects "$Compiler" "$object_files_glob" "gen/day_02"
 

@@ -1,6 +1,8 @@
 #ifndef AoC_H
 #define AoC_H
 
+#include <iostream>
+
 #include "util/input_file.h"
 #include "util/string_split.h"
 

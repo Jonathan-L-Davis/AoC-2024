@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-static std::vector<std::string> read_input(int i){// this is for AoC, not good practice, but is easy for competition/fast typing programming.
+static std::vector<std::string> read_input(int i){// static header functions are for AoC. Not good practice, but is easy for competition/fast typing programming.
     std::vector<std::string> retMe;
     std::string padded_str = std::to_string(i);
     if( (i > 25) or (i < 1) ){
