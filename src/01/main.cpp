@@ -8,10 +8,9 @@ int main(){
     std::vector my_locations = read_input(1);
     std::vector<int> l1;
     std::vector<int> l2;
-        
+    
     for( int i = 0; i < my_locations.size(); i++ ){
-        
-        if(split(my_locations[i]," ").size()!=2) std::cout << i;
+        assert(split(my_locations[i]," ").size()==2);
         l1.push_back( std::stoi(split(my_locations[i]," ")[0]) );
         l2.push_back( std::stoi(split(my_locations[i]," ")[1]) );
     }
