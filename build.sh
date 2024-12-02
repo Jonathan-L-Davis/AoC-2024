@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 day_01=( "src/01/main.cpp" )
-day_02=( "src/01/main.cpp" )
+day_02=( "src/02/main.cpp" )
 Compiler=""
 
 # compiler search needs to be abstracted slightly, but oh well, works for the moment. 
