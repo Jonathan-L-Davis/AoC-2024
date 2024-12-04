@@ -27,5 +27,35 @@ static std::vector<std::string> read_input(int i){// static header functions are
     return retMe;
 }
 
+static std::vector<std::string> read_test(int i, int j){
+    std::vector<std::string> retMe;
+    std::string padded_str_i = std::to_string(i);
+    if( i < 1 ){
+        std::cout << "The integer '" + std::to_string(i) + "' is an invalid day number. Exiting." << std::endl;
+        exit(-1);
+    }
+    if( padded_str_i.size() == 1 ) padded_str_i = "0" + padded_str_i;
+
+    std::string padded_str_j = std::to_string(j);
+    if( i < 1 ){
+        std::cout << "The integer '" + std::to_string(j) + "' is an invalid test number. Exiting." << std::endl;
+        exit(-1);
+    }
+    if( padded_str_j.size() == 1 ) padded_str_j = "0" + padded_str_j;
+
+    std::fstream file("test/"+padded_str_i+"/test_" + padded_str_j + ".txt");
+    
+    if( !file.good() ){
+        std::cout << "Input file \"test/"+padded_str_i+"/test_" + padded_str_j + ".txt\" not found. Exiting." << std::endl;
+        exit(-1);
+    }
+    
+    std::string line;
+    while( std::getline(file,line) ){
+        if(line != "") retMe.push_back(line);
+    }
+    return retMe;
+}
+
 #endif//INPUT_FILE_H
 

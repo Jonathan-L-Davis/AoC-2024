@@ -2,6 +2,7 @@
 
 day_01=( "src/01/main.cpp" )
 day_02=( "src/02/main.cpp" )
+day_02=( "src/03/main.cpp" )
 Compiler=""
 
 # compiler search needs to be abstracted slightly, but oh well, works for the moment. 
@@ -84,9 +85,17 @@ compile_files( ){
 mkdir -p gen # where the executables go
 mkdir -p input # where the input files go for each day.
 cp input gen -r
-mkdir -p output # where any file output goes to be stored for later (incase of multistage processing.)
+mkdir -p test # where any test files go
+cp test gen -r
+
 compile_files $Compiler day_01
 link_objects "$Compiler" "$object_files_glob" "gen/day_01"
 compile_files $Compiler day_02
 link_objects "$Compiler" "$object_files_glob" "gen/day_02"
+compile_files $Compiler day_03
+link_objects "$Compiler" "$object_files_glob" "gen/day_03"
+
+
+
+
 

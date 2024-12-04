@@ -40,7 +40,7 @@ int main(){
             }
         }
     }
-
+    
     std::cout << "Part two answer: " << total << std::endl;
 }
 
