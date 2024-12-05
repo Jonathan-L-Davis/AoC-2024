@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <cassert>
 
 #include "util/input_file.h"
 #include "util/string_split.h"
