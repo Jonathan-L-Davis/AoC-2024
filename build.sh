@@ -2,7 +2,8 @@
 
 day_01=( "src/01/main.cpp" )
 day_02=( "src/02/main.cpp" )
-day_02=( "src/03/main.cpp" )
+day_03=( "src/03/main.cpp" )
+day_04=( "src/04/main.cpp" )
 Compiler=""
 
 # compiler search needs to be abstracted slightly, but oh well, works for the moment. 
@@ -94,6 +95,8 @@ compile_files $Compiler day_02
 link_objects "$Compiler" "$object_files_glob" "gen/day_02"
 compile_files $Compiler day_03
 link_objects "$Compiler" "$object_files_glob" "gen/day_03"
+compile_files $Compiler day_04
+link_objects "$Compiler" "$object_files_glob" "gen/day_04"
 
 
 
