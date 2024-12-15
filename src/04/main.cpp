@@ -1,5 +1,25 @@
 #include "../AoC.h"
 
+int find_2d_str( std::vector<std::string> searchMe, std::vector<std::string> findMe ){
+    int retMe = 0;
+    
+    for( int y = 0; y < searchMe.size()-findMe.size()+1; y++ ){
+        for( int x = 0; x < searchMe[0].size()-findMe[0].size()+1; x++ ){
+            bool is_match = true;
+            
+            for( int i = 0; i < findMe.size(); i++ ){
+                for( int j = 0; j < findMe.size(); j++ ){
+                    if( !(findMe[i][j] == '.' || findMe[i][j] == searchMe[y+i][x+j]) ) is_match = false;
+                }
+            }
+            
+            if( is_match ) retMe++;
+        }
+    }
+    
+    return retMe;
+}
+
 int main(){
     
     int total = 0;
@@ -104,5 +124,36 @@ int main(){
     
     std::cout << "Part one answer: " << total << std::endl;
     total = 0;
+    
+    std::vector<std::string> x1 = {
+        "M.M",
+        ".A.",
+        "S.S"
+    };
+    
+    std::vector<std::string> x2 = {
+        "M.S",
+        ".A.",
+        "M.S"
+    };
+    
+    std::vector<std::string> x3 = {
+        "S.S",
+        ".A.",
+        "M.M"
+    };
+    
+    std::vector<std::string> x4 = {
+        "S.M",
+        ".A.",
+        "S.M"
+    };
+
+    total += find_2d_str( arr, x1 );
+    total += find_2d_str( arr, x2 );
+    total += find_2d_str( arr, x3 );
+    total += find_2d_str( arr, x4 );
+    
+    
     std::cout << "Part two answer: " << total << std::endl;
 }
